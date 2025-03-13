@@ -4,13 +4,12 @@ export const SLIDES = [
   {
     id: 1,
     title: "Multi-currency accounts for Africans",
-    description:
-      "Transact at home and abroad - create, send, hold and receive money in African and foreign currencies. Send money to and from Africa, seamlessly.",
+    description: `Transact at home and abroad - <span style="color: #4CD964;">create</span>, <span style="color: #4CD964;">send</span>, <span style="color: #4CD964;">hold</span> and <span style="color: #4CD964;">receive</span> money in African and foreign currencies. Send money to and from Africa, seamlessly.`,
     image: "/images/features/multi-currency.png",
     news: [
       {
         date: "June 20, 2022",
-        text: "Bomba now has a dollar wallet, activate your account",
+        text: `Bomba now has a dollar wallet, activate your account`,
         link: "#",
       },
       {
@@ -23,13 +22,12 @@ export const SLIDES = [
   {
     id: 2,
     title: "Choose from several payment methods",
-    description:
-      "With Bomba, you get to choose how you send and receive money; update your card info with 'Swap' and send money instantly with 'Express'.",
+    description: `With Bomba, you get to choose how you <span style="color: #4CD964;">send</span> and <span style="color: #4CD964;">receive</span> money; send at your own rate with <span style="color: #4CD964;">'Swap'</span>, send and receive instantly with <span style="color: #4CD964;">'Express'</span>, or make free local transfers with <span style="color: #4CD964;">'Withdraw Money'</span>`,
     image: "/images/features/payment-methods.png",
     news: [
       {
         date: "June 20, 2022",
-        text: "Bomba now has a stable wallet, activate your account",
+        text: `Bomba now has a stable wallet, activate your account`,
         link: "#",
       },
       {
@@ -42,13 +40,12 @@ export const SLIDES = [
   {
     id: 3,
     title: "Accept and create offers with Swap",
-    description:
-      "With Bomba, you get to choose how you send and receive money; update your card info with 'Swap' and send money instantly with 'Express'.",
+    description: `With Bomba, you get to choose how you <span style="color: #4CD964;">send</span> and <span style="color: #4CD964;">receive</span> money; update your card info with <span style="color: #4CD964;">'Swap'</span> and send money instantly with <span style="color: #4CD964;">'Express'</span>.`,
     image: "/images/features/payment-methods.png",
     news: [
       {
         date: "June 20, 2022",
-        text: "Bomba now has a stable wallet, activate your account",
+        text: `Bomba now has a stable wallet, activate your account`,
         link: "#",
       },
       {
@@ -61,13 +58,12 @@ export const SLIDES = [
   {
     id: 4,
     title: "Make instant transfers with Express",
-    description:
-      "With Bomba, you get to choose how you send and receive money; update your card info with 'Swap' and send money instantly with 'Express'.",
+    description: `You can <span style="color: #4CD964;">send money internationally</span> at your preferred rate on our <span style="color: #4CD964;">Peer-to-peer Marketplace</span> by choosing or accepting an offer. Created offers get accepted within an average time of 30 minutes`,
     image: "/images/features/payment-methods.png",
     news: [
       {
         date: "June 20, 2022",
-        text: "Bomba now has a stable wallet, activate your account",
+        text: `Bomba now has a stable wallet, activate your account`,
         link: "#",
       },
       {
@@ -79,14 +75,31 @@ export const SLIDES = [
   },
   {
     id: 5,
-    title: "Review and confirm your transaction ",
-    description:
-      "With Bomba, you get to choose how you send and receive money; update your card info with 'Swap' and send money instantly with 'Express'.",
+    title: "Review and confirm your transaction",
+    description: `<span style="color: #4CD964;">Review</span> your transaction, ensure that the provided details are correct, then click the send button!.`,
     image: "/images/features/payment-methods.png",
     news: [
       {
         date: "June 20, 2022",
-        text: "Bomba now has a stable wallet, activate your account",
+        text: `Bomba now has a stable wallet, activate your account`,
+        link: "#",
+      },
+      {
+        date: "June 01, 2022",
+        text: "Top 10 Summer Vacation Places in 2022",
+        link: "#",
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "Completed! Fast, easy and secure",
+    description: `<span style="color: #4CD964;">Money on its way!</span> Send money today to your friends, family or make payment to a business. <span style="color: #4CD964;">Get started</span> → `,
+    image: "/images/features/payment-methods.png",
+    news: [
+      {
+        date: "June 20, 2022",
+        text: `Bomba now has a stable wallet, activate your account`,
         link: "#",
       },
       {
@@ -253,5 +266,21 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "October 19, 2021",
     image: "/images/press/5.png",
     slug: "more-african-startups-get-into-techstars-toronto",
+  },
+];
+
+export const ROUTES = [
+  {
+    label: "Features",
+    href: "/features",
+    hasPopover: true,
+  },
+  {
+    label: "Press",
+    href: "/press",
+  },
+  {
+    label: "Company",
+    href: "/",
   },
 ];

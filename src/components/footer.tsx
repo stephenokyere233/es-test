@@ -6,7 +6,7 @@ import {
 } from "@/lib/constants";
 import { FooterLink } from "@/lib/interfaces";
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -60,11 +60,14 @@ const NewsletterSubscription = ({ className }: { className?: string }) => (
         <input
           type="email"
           placeholder="Enter your email address"
-          className="text-white w-full"
+          className="text-white w-full text-sm"
         />
       </div>
-      <Button variant="link" className="w-max">
-        Subscribe <ArrowRight className="w-4 h-4" />
+      <Button
+        variant="link"
+        className="w-max underline underline-offset-8 text-[#2668EC]"
+      >
+        Subscribe <ChevronRight className="w-4 h-4" />
       </Button>
     </div>
   </div>
@@ -76,7 +79,7 @@ const AppStoreLinks = ({ className }: { className?: string }) => (
       <Link
         key={item.href}
         href={item.href}
-        className="border border-[#6E80A3] rounded px-3 py-2 flex items-center justify-between md:justify-start"
+        className="border border-[#6E80A3] rounded-xl px-3 py-2 flex items-center justify-between md:justify-start"
       >
         <div className="flex items-center gap-2">
           <Image src={item.icon} alt={item.text} width={24} height={24} />
@@ -90,14 +93,8 @@ const AppStoreLinks = ({ className }: { className?: string }) => (
   </div>
 );
 
-const SocialLinks = ({
-  className,
-  columns = 4,
-}: {
-  className?: string;
-  columns?: number;
-}) => (
-  <div className={cn(`grid grid-cols-${columns} gap-x-4 text-sm`, className)}>
+const SocialLinks = ({ className }: { className?: string; columns?: number }) => (
+  <div className={cn(`grid grid-cols-1 lg:grid-cols-4 gap-x-4 text-sm`, className)}>
     {SOCIAL_LINKS.map((social) => (
       <Link key={social.href} href={social.href} className="text-indigo-900">
         {social.label}

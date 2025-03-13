@@ -21,7 +21,6 @@ const DesktopHero = () => {
     return () => clearTimeout(timer);
   }, [currentIndex]);
 
-  // Handle manual navigation
   const goToSlide = useCallback(
     (index: number) => {
       if (index === currentIndex) return;
@@ -32,19 +31,14 @@ const DesktopHero = () => {
     [currentIndex]
   );
 
-  // Function to handle scroll down
   const handleScrollDown = () => {
-    // Get the height of the hero section
     const heroHeight = document.querySelector("section")?.offsetHeight || 0;
-
-    // Scroll to the next section with smooth behavior
     window.scrollTo({
       top: heroHeight,
       behavior: "smooth",
     });
   };
 
-  // Variants for slide animations
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,
@@ -78,28 +72,32 @@ const DesktopHero = () => {
             className="w-full space-y-10"
           >
             {/* Phone */}
-            <div className="flex justify-center">
-              <div className="relative w-[280px] h-[550px] rounded-[40px] border-[8px] border-green-400 bg-indigo-900 shadow-xl">
+            <div className="flex justify-center pb-5">
+              <div className="relative w-[280px] h-[550px] rounded-[40px] border-[8px] border-green-400 bg-indigo-900 shadow-[-20px_20px_40px_#00000040]">
                 <div className="absolute inset-0 flex items-center justify-center overflow-hidden rounded-[32px]"></div>
               </div>
             </div>
+
             {/* Title */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <h1 className="text-4xl md:text-6xl font-bold text-indigo-900 mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold text-indigo-900">
                 {SLIDES[currentIndex].title}
               </h1>
               <div className="w-full flex justify-end items-end">
-                <p className="text-gray-700 w-full text-lg">
-                  {SLIDES[currentIndex].description}
-                </p>
+                <p
+                  className="text-gray-700 w-full text-lg"
+                  dangerouslySetInnerHTML={{
+                    __html: SLIDES[currentIndex].description,
+                  }}
+                />
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
       </WidthConstraint>
       {/* Slide indicators */}
-      <div className="">
-        <div className="grid grid-cols-5 gap-10 xl:gap-20 relative">
+      <div className="py-5">
+        <div className="grid grid-cols-6 gap-10 xl:gap-20 relative">
           <div className="w-full h-[1px] bg-[#6E80A3] absolute top-1/2 -translate-y-1/2"></div>
           {SLIDES.map((_, index) => (
             <button

@@ -22,9 +22,13 @@ const FeatureCard = ({
 }: FeatureCardProps & { index: number }) => {
   const isTaller = index === 1 || index === 2;
   const bgColorRgba = hexToRgba(bgColor);
+  const featureId = category.toLowerCase().replace(/\s+/g, "-");
 
   return (
-    <div className={cn("flex", index === 3 ? "justify-end items-end" : "")}>
+    <div
+      id={featureId}
+      className={cn("flex scroll-m-20", index === 3 ? "justify-end items-end" : "")}
+    >
       <Card
         style={{
           backgroundColor: bgColorRgba,
@@ -78,8 +82,8 @@ const FeatureCard = ({
 
 const Features = () => {
   return (
-    <section className="py-20">
-      <WidthConstraint className="max-w-[1100px] space-y-10">
+    <section id="features" className="py-20 scroll-m-24">
+      <WidthConstraint className="space-y-10">
         <Separator />
         <div className="lg:text-center max-w-5xl mx-auto lg:px-4 space-y-10">
           <h2 className="text-3xl md:text-4xl font-medium text-indigo-900">
@@ -92,7 +96,7 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2  gap-y-10 lg:gap-y-0 gap-x-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-y-0 gap-x-15">
           {FEATURE_CARDS.map((card, index) => (
             <FeatureCard key={index} {...card} index={index} />
           ))}

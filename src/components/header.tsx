@@ -5,34 +5,102 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { FEATURE_CARDS, ROUTES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import WidthConstraint from "./ui/width-constraint";
 
-const routes = [
-  {
-    label: "Features",
-    href: "/features",
-    hasPopover: true,
-  },
-  {
-    label: "Press",
-    href: "/press",
-  },
-  {
-    label: "Company",
-    href: "/company",
-    hasPopover: true,
-  },
-];
+// Function to scroll to a feature section
+const scrollToFeature = (
+  featureId: string,
+  pathname: string,
+  router: ReturnType<typeof useRouter>,
+  setCheck?: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+  // If we're not on the home page, navigate to home page first
+  if (pathname !== "/") {
+    router.push("/?scrollTo=" + featureId);
+    return;
+  }
 
-const MobileMenu = ({ check }: { check: boolean; isScrolled: boolean }) => {
+  // Close mobile menu if it's open
+  if (setCheck) {
+    setCheck(false);
+  }
+
+  // If we're already on the home page, scroll to the feature
+  setTimeout(() => {
+    const element = document.getElementById(featureId);
+    if (element) {
+      // Get the header height to offset the scroll position
+      const header = document.querySelector("header");
+      const headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+      // Calculate the element's position relative to the viewport
+      const elementPosition = element.getBoundingClientRect().top;
+
+      // Calculate the absolute position to scroll to
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
+
+      // Scroll to the element with the offset
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  }, 100);
+};
+
+// Component to display feature links
+const FeaturesContent = ({
+  className,
+  pathname,
+  router,
+  setCheck,
+}: {
+  className?: string;
+  pathname: string;
+  router: ReturnType<typeof useRouter>;
+  setCheck?: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  return (
+    <div className={className}>
+      {FEATURE_CARDS.map((feature) => (
+        <button
+          key={feature.category}
+          onClick={() =>
+            scrollToFeature(
+              feature.category.toLowerCase().replace(/\s+/g, "-"),
+              pathname,
+              router,
+              setCheck
+            )
+          }
+          className="flex w-full items-center gap-2 p-2 text-sm text-muted-foreground hover:text-foreground transition-colors text-left"
+        >
+          {feature.title}
+        </button>
+      ))}
+    </div>
+  );
+};
+
+const MobileMenu = ({
+  check,
+  setCheck,
+}: {
+  check: boolean;
+  setCheck: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  const pathname = usePathname();
+  const router = useRouter();
+
   return (
     <div className="rounded-b-3xl bg-gray-50 ">
       <WidthConstraint className={cn(`${check ? "pb-5" : ""} w-full`)}>
@@ -46,7 +114,7 @@ const MobileMenu = ({ check }: { check: boolean; isScrolled: boolean }) => {
               className="lg:hidden"
             >
               <ul className="flex flex-col gap-4 py-4">
-                {routes.map((route) => {
+                {ROUTES.map((route) => {
                   if (route.hasPopover) {
                     return (
                       <Accordion
@@ -55,23 +123,27 @@ const MobileMenu = ({ check }: { check: boolean; isScrolled: boolean }) => {
                         collapsible
                         className="w-full"
                       >
-                        <AccordionItem value="socials" className="border-b border-border">
+                        <AccordionItem
+                          value="features"
+                          className="border-b border-border"
+                        >
                           <AccordionTrigger className="py-2 hover:no-underline">
                             <span className="text-sm font-medium">{route.label}</span>
                           </AccordionTrigger>
                           <AccordionContent>
-                            <SocialsContent className="flex flex-col py-2" />
+                            <FeaturesContent
+                              className="flex flex-col py-2"
+                              pathname={pathname}
+                              router={router}
+                              setCheck={setCheck}
+                            />
                           </AccordionContent>
                         </AccordionItem>
                       </Accordion>
                     );
                   }
-
                   return (
-                    <li
-                      key={route.label}
-                      className="border-b border-border w-full first:pt-4 last:border-none pb-4"
-                    >
+                    <li key={route.label} className="w-full last:border-none">
                       <Button
                         asChild
                         variant="link"
@@ -95,11 +167,12 @@ const MobileMenu = ({ check }: { check: boolean; isScrolled: boolean }) => {
 
 const NavBar = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <nav className="hidden lg:flex">
       <ul className="flex gap-10 uppercase items-center justify-center font-medium text-foreground">
-        {routes.map((route) => {
+        {ROUTES.map((route) => {
           if (route.hasPopover) {
             return (
               <Popover key={route.label}>
@@ -112,8 +185,8 @@ const NavBar = () => {
                     <ChevronDown className="h-4 w-4" />
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-48 p-2">
-                  <SocialsContent />
+                <PopoverContent className="w-64 p-2">
+                  <FeaturesContent pathname={pathname} router={router} />
                 </PopoverContent>
               </Popover>
             );
@@ -142,6 +215,7 @@ const Header = () => {
   const [check, setCheck] = useState(false);
   const navRef = useRef<HTMLHeadingElement | null>(null);
   const pathname = usePathname();
+  const router = useRouter();
 
   const handleClickOutside = (event: MouseEvent) => {
     if (navRef.current && !navRef.current.contains(event.target as Node)) {
@@ -168,7 +242,22 @@ const Header = () => {
 
   useEffect(() => {
     setCheck(false);
-  }, [pathname]);
+
+    // Check if we need to scroll to a feature after navigation
+    if (pathname === "/" && typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const scrollTo = urlParams.get("scrollTo");
+
+      if (scrollTo) {
+        // Wait for the page to load before scrolling
+        setTimeout(() => {
+          scrollToFeature(scrollTo, pathname, router);
+          // Clean up the URL
+          window.history.replaceState({}, document.title, "/");
+        }, 800);
+      }
+    }
+  }, [pathname, router]);
 
   return (
     <header
@@ -185,48 +274,9 @@ const Header = () => {
           <Menu size={30} onClick={() => setCheck(!check)} className={`flex lg:hidden`} />
         </div>
       </WidthConstraint>
-      <MobileMenu check={check} isScrolled={isScrolled} />
+      <MobileMenu check={check} setCheck={setCheck} />
     </header>
   );
 };
 
 export default Header;
-
-export const socialLinks = [
-  {
-    name: "Telegram",
-    href: "#",
-  },
-  {
-    name: "X (Twitter)",
-    href: "#",
-  },
-  {
-    name: "Discord",
-    href: "",
-  },
-  {
-    name: "Spotify",
-    href: "#",
-  },
-];
-
-interface SocialsContentProps {
-  className?: string;
-}
-
-export function SocialsContent({ className }: SocialsContentProps) {
-  return (
-    <div className={className}>
-      {socialLinks.map((social) => (
-        <Link
-          key={social.name}
-          href={social.href}
-          className="flex items-center gap-2 p-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-          {social.name}
-        </Link>
-      ))}
-    </div>
-  );
-}

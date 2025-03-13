@@ -12,7 +12,7 @@ const Hero = () => {
             <br />
             from around the world
           </h1>
-          <p className="text-gray-600 mb-8 text-lg">
+          <p className="text-gray-600 mb-8 text-lg max-w-xl">
             Please write to us at{" "}
             <a href="mailto:media@bomba.co" className="text-indigo-600 hover:underline">
               media@bomba.co

@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bomba - Multi-Currency Financial Platform
 
-## Getting Started
+![Bomba Logo](public/images/logo.svg)
 
-First, run the development server:
+Bomba is a modern financial platform designed to simplify cross-border transactions for Africans. The platform enables users to create, send, hold, and receive money in multiple currencies, with a focus on African and foreign currencies.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🌟 Features
+
+- **Multi-Currency Accounts**: Create and manage accounts in various currencies
+- **Peer-to-Peer Marketplace (Swap)**: Exchange currencies at preferred rates
+- **Express Transfers**: Send money instantly to 20+ African countries
+- **Referral Program**: Earn bonuses by referring friends and family
+- **Bomba Connect**: Access deals from top brands (Coming Soon)
+
+## 🚀 Technologies
+
+This project is built with:
+
+- **Next.js 14**: React framework with App Router for server-side rendering and routing
+- **TypeScript**: For type safety and better developer experience
+- **Tailwind CSS**: For responsive and utility-first styling
+- **Framer Motion**: For smooth animations and transitions
+- **Radix UI**: For accessible UI components
+- **Lucide Icons**: For beautiful and consistent iconography
+
+## 📋 Project Structure
+
+```
+src/
+├── app/                  # Next.js App Router pages
+├── components/           # Reusable UI components
+│   ├── home/             # Home page specific components
+│   ├── press/            # Press page components
+│   └── ui/               # Shared UI components
+├── hooks/                # Custom React hooks
+├── lib/                  # Utility functions and constants
+│   ├── constants.ts      # Application constants
+│   ├── interfaces.ts     # TypeScript interfaces
+│   └── utils.ts          # Helper functions
+└── styles/               # Global styles
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18.x or later
+- npm or yarn
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone https://github.com/yourusername/bomba.git
+   cd bomba
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Install dependencies:
 
-## Deploy on Vercel
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Start the development server:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## 📱 Key Components
+
+### Currency Converter
+
+The Currency Converter allows users to:
+
+- Convert between multiple currencies with real-time rates
+- Choose between Standard and Express fee options
+- See transparent fee calculations and delivery times
+
+### Feature Cards
+
+Dynamic feature cards showcase Bomba's key offerings:
+
+- Swap: Peer-to-peer marketplace
+- Express: Fast money transfers
+- Refer & Earn: Referral program
+- Bomba Connect: Brand partnerships (Coming Soon)
+
+### Responsive Design
+
+The application is fully responsive with:
+
+- Desktop-optimized layouts for larger screens
+- Mobile-friendly interfaces for on-the-go access
+- Smooth transitions between viewport sizes
+
+## 🧩 Custom Components
+
+- **FloatingInput**: Enhanced input fields with currency selection
+- **FeatureSlider**: Interactive slider for showcasing features
+- **FeatureCards**: Dynamic cards with customizable properties
+- **MobileHero/DesktopHero**: Responsive hero sections
+
+## 🔍 Future Enhancements
+
+- User authentication and account management
+- Real-time currency rate updates
+- Transaction history and analytics
+- Mobile app integration
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 📬 Contact
+
+For any inquiries, please reach out to hello@bomba.co.
+
+---
+
+Built with ❤️ for Africans around the world.

@@ -2,7 +2,7 @@ import BlogList from "@/components/press/blog-list";
 import Hero from "@/components/press/hero";
 
 export const metadata = {
-  title: "Press & Media | Bomba",
+  title: "Stephen Okyere | Press & Media",
   description: "Latest news and media from Bomba around the world.",
 };
 

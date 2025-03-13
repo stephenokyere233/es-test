@@ -58,7 +58,7 @@ const FloatingInput = ({
               onValueChange={handleCurrencyChange}
               defaultValue={selectedCurrency.code}
             >
-              <SelectTrigger className="bg-indigo-900 p-0 h-full rounded-r-lg text-white py-4 border-0 w-full focus-visible:ring-0 focus-visible:border-0">
+              <SelectTrigger className=" bg-transparent p-0 h-full rounded-r-lg text-white py-4 border-0 w-full focus-visible:ring-0 focus-visible:border-0">
                 <SelectValue>
                   <div className="flex items-center">
                     <span className="mr-2">{selectedCurrency.flag}</span>
