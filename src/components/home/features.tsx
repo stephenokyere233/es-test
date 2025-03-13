@@ -81,8 +81,8 @@ const Features = () => {
     <section className="py-20">
       <WidthConstraint className="max-w-[1100px] space-y-10">
         <Separator />
-        <div className="text-center max-w-5xl space-y-5 mx-auto px-4 pb-10">
-          <h2 className="text-3xl md:text-4xl text-center font-medium text-indigo-900">
+        <div className="lg:text-center max-w-5xl mx-auto lg:px-4 space-y-10">
+          <h2 className="text-3xl md:text-4xl font-medium text-indigo-900">
             The Bomba app help our users send & receive money, swap currencies across
             borders and pay bills, safely, conveniently, cheaply and on time.
           </h2>
@@ -92,7 +92,7 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2  gap-y-10 lg:gap-y-0 gap-x-10 px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2  gap-y-10 lg:gap-y-0 gap-x-10">
           {FEATURE_CARDS.map((card, index) => (
             <FeatureCard key={index} {...card} index={index} />
           ))}

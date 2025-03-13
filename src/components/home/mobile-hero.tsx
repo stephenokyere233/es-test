@@ -1,9 +1,22 @@
+"use client";
 import { ArrowDown, Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import WidthConstraint from "../ui/width-constraint";
 
 const MobileHero = () => {
+  // Function to handle scroll down
+  const handleScrollDown = () => {
+    // Get the height of the hero section
+    const heroHeight = document.querySelector("section")?.offsetHeight || 0;
+
+    // Scroll to the next section with smooth behavior
+    window.scrollTo({
+      top: heroHeight,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <WidthConstraint className="flex lg:hidden flex-col items-center space-y-10">
       {/* Phone Image */}
@@ -43,7 +56,13 @@ const MobileHero = () => {
           </div>
 
           {/* Scroll indicator */}
-          <ArrowDown size={24} className="text-green-500" />
+          <button
+            onClick={handleScrollDown}
+            className="flex items-center cursor-pointer hover:opacity-80 transition-opacity"
+            aria-label="Scroll down to next section"
+          >
+            <ArrowDown size={24} className="text-green-500" />
+          </button>
         </div>
       </div>
     </WidthConstraint>

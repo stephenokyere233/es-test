@@ -1,4 +1,10 @@
-import { ReactNode } from "react";
+import { ChangeEvent, ReactNode } from "react";
+
+export interface Currency {
+  code: string;
+  flag: string;
+  name: string;
+}
 
 export interface FeatureCardProps {
   category: string;
@@ -21,6 +27,20 @@ export type FooterLink = {
 export interface CategoryButtonProps {
   children: ReactNode;
   className?: string;
+}
+
+export interface FloatingInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  name?: string;
+  type?: string;
+  required?: boolean;
+  className?: string;
+  currency?: Currency;
+  currencies?: Currency[];
+  onCurrencyChange?: (currency: Currency) => void;
 }
 
 export interface BlogPost {

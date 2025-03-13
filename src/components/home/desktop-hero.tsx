@@ -32,6 +32,18 @@ const DesktopHero = () => {
     [currentIndex]
   );
 
+  // Function to handle scroll down
+  const handleScrollDown = () => {
+    // Get the height of the hero section
+    const heroHeight = document.querySelector("section")?.offsetHeight || 0;
+
+    // Scroll to the next section with smooth behavior
+    window.scrollTo({
+      top: heroHeight,
+      behavior: "smooth",
+    });
+  };
+
   // Variants for slide animations
   const slideVariants = {
     enter: (direction: number) => ({
@@ -93,7 +105,7 @@ const DesktopHero = () => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-full h-[2px] z-10 transition-colors ${
+              className={`w-full h-[3px] z-10 transition-colors ${
                 index <= currentIndex ? "bg-[#2668EC]" : ""
               }`}
               aria-label={`Go to slide ${index + 1}`}
@@ -122,10 +134,14 @@ const DesktopHero = () => {
           </div>
           <div className="flex items-center">
             {/* Scroll Down button */}
-            <div className="flex items-center text-indigo-900">
+            <button
+              onClick={handleScrollDown}
+              className="flex items-center text-indigo-900 cursor-pointer hover:opacity-80 transition-opacity"
+              aria-label="Scroll down to next section"
+            >
               <span className="font-medium mr-2">Scroll Down</span>
               <ArrowDown size={24} className="text-green-500" />
-            </div>
+            </button>
           </div>
         </div>
       </WidthConstraint>

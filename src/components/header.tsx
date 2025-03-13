@@ -34,7 +34,7 @@ const routes = [
 
 const MobileMenu = ({ check }: { check: boolean; isScrolled: boolean }) => {
   return (
-    <div className="rounded-b-3xl bg-background">
+    <div className="rounded-b-3xl bg-gray-50 ">
       <WidthConstraint className={cn(`${check ? "pb-5" : ""} w-full`)}>
         <AnimatePresence>
           {check && (
@@ -124,7 +124,7 @@ const NavBar = () => {
                 href={route.href}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-primary",
-                  pathname === route.href ? "text-foreground" : "text-muted-foreground"
+                  pathname === route.href ? "text-muted-foreground " : "text-foreground"
                 )}
               >
                 {route.label}
@@ -174,9 +174,9 @@ const Header = () => {
     <header
       ref={navRef}
       className={cn(
-        "fixed top-0 z-[20] w-screen py-1 overflow-clip",
-        isScrolled || check ? "bg-background" : "bg-white h-[80px]",
-        "border-b border-border"
+        "fixed top-0 z-[20] w-screen py-1 overflow-clip bg-gray-50 lg:bg-white",
+        isScrolled || check ? "" : " h-[80px]",
+        "lg:border-b border-border"
       )}
     >
       <WidthConstraint className="flex gap-10 lg:justify-center justify-end items-end lg:items-center h-full py-4">
