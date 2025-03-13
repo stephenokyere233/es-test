@@ -1,13 +1,15 @@
 import CurrencyConverter from "@/components/home/currency-converter";
+import Features from "@/components/home/features";
 import Hero from "@/components/home/hero";
-import WhyBomba from "@/components/home/why-bomba";
+import Partners from "@/components/home/partners";
 
 export default function Home() {
   return (
     <main className="mt-[80px]">
       <Hero />
-      <WhyBomba />
       <CurrencyConverter />
+      <Features />
+      <Partners />
     </main>
   );
 }

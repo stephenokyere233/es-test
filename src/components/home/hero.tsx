@@ -50,7 +50,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="bg-gray-50 py-20 pt-10 space-y-5 overflow-hidden min-h-[calc(100vh-80px)]">
+    <section className="bg-gray-50 py-20 space-y-5 overflow-hidden ">
       <WidthConstraint className="max-w-[1400px]">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
