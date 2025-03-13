@@ -1,15 +1,22 @@
 "use client";
 import { useEffect, useState } from "react";
+import CurrencyInput from "../ui/currency-input";
 import WidthConstraint from "../ui/width-constraint";
 
 // Fixed exchange rate for GBP to GHS
 const GBP_TO_GHS_RATE = 19.19;
 
+// Currency definitions
+const CURRENCIES = {
+  GBP: { code: "GBP", flag: "🇬🇧", name: "British Pound" },
+  GHS: { code: "GHS", flag: "🇬🇭", name: "Ghanaian Cedi" },
+};
+
 const CurrencyConverter = () => {
   return (
     <section className="py-20 bg-white">
       <WidthConstraint className="space-y-10">
-        <h2 className="text-3xl md:text-4xl text-center font-bold text-indigo-900 max-w-4xl mx-auto leading-tight">
+        <h2 className="text-3xl md:text-4xl text-center font-medium text-indigo-900 max-w-4xl mx-auto">
           We are on a mission to reduce the cost of sending money to Africa at an average
           cost of 1%
         </h2>
@@ -60,27 +67,20 @@ const CurrencyConverterForm = () => {
       setReceiveAmount(received.toFixed(2));
     }
   }, [sendAmount]);
+
   return (
     <div className="bg-white max-w-md">
       {/* Send amount */}
       <div className="mb-4">
-        <label className="block text-xs text-gray-500 mb-1">You send</label>
-        <div className="flex border rounded-md overflow-hidden">
-          <input
-            type="text"
-            value={sendAmount}
-            onChange={(e) => setSendAmount(e.target.value)}
-            className="p-3 flex-grow text-lg font-medium focus:outline-none"
-            step="0.01"
-            min="0"
-          />
-          <div className="bg-indigo-900 text-white px-4 py-3 flex items-center justify-between min-w-[100px]">
-            <span className="flex items-center">
-              <span className="mr-2">🇬🇧</span>
-              GBP
-            </span>
-          </div>
-        </div>
+        <CurrencyInput
+          id="send-amount"
+          label="You send"
+          value={sendAmount}
+          onChange={(e) => setSendAmount(e.target.value)}
+          currency={CURRENCIES.GBP}
+          step="0.01"
+          min="0"
+        />
         {/* Fee display */}
         <div className="flex items-center mt-2 text-xs text-gray-600">
           <div className="w-2 h-2 bg-indigo-900 rounded-full mr-2"></div>
@@ -90,44 +90,37 @@ const CurrencyConverterForm = () => {
 
       {/* Receive amount */}
       <div className="mb-4">
-        <label className="block text-xs text-gray-500 mb-1">Recipient Gets</label>
-        <div className="flex border rounded-md overflow-hidden">
-          <input
-            type="text"
-            value={receiveAmount}
-            readOnly
-            className="p-3 flex-grow text-lg font-medium focus:outline-none bg-gray-50"
-          />
-          <div className="bg-indigo-900 text-white px-4 py-3 flex items-center justify-between min-w-[100px]">
-            <span className="flex items-center">
-              <span className="mr-2">🇬🇭</span>
-              GHS
-            </span>
-          </div>
-        </div>
+        <CurrencyInput
+          id="receive-amount"
+          label="Recipient Gets"
+          value={receiveAmount}
+          onChange={() => {}} // No-op since this is read-only
+          currency={CURRENCIES.GHS}
+          readOnly
+        />
       </div>
 
       {/* Conversion details */}
-      <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+      <div className="flex items-center justify-between gap-4 mb-4 text-sm">
         <div>
           <div className="text-xs text-gray-500">Amount we&apos;ll convert</div>
           <div className="font-medium">{sendAmount} GBP</div>
         </div>
-        <div className="flex items-start">
-          <div className="mr-2 text-green-500">✓</div>
-          <div>
-            <div className="text-xs text-gray-500">Guaranteed rate (1 hr)</div>
-            <div className="font-medium">£1 / GHS {GBP_TO_GHS_RATE.toFixed(2)}</div>
+        <div className="flex items-end flex-col">
+          <div className="text-xs text-gray-500">Guaranteed rate (1 hr)</div>
+          <div className="font-medium">
+            <span className="mr-2 text-green-500">✓</span>£1 / GHS{" "}
+            {GBP_TO_GHS_RATE.toFixed(2)}
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
+      <div className="flex items-center justify-between gap-4 mb-6 text-sm">
         <div>
           <div className="text-xs text-gray-500">Total to Pay</div>
           <div className="font-medium">{totalToPay} GBP</div>
         </div>
-        <div>
+        <div className="flex items-end flex-col">
           <div className="text-xs text-gray-500">Average duration</div>
           <div className="font-medium">Instant</div>
         </div>

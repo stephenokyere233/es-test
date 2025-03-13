@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent } from "../ui/card";
+import { Separator } from "../ui/separator";
 import WidthConstraint from "../ui/width-constraint";
 
 const FeatureCard = ({
@@ -52,7 +53,7 @@ const FeatureCard = ({
             <p className="text-gray-60 pb-10">{description}</p>
             <Link
               href={actionLink}
-              className={`flex items-center underline underline-offset-5 text-indigo-900 font-medium text-sm ${
+              className={`flex items-center underline underline-offset-10 text-indigo-900 font-medium text-sm ${
                 isComingSoon ? "opacity-50 pointer-events-none" : ""
               }`}
             >
@@ -77,20 +78,20 @@ const FeatureCard = ({
 
 const Features = () => {
   return (
-    <section className="py-16 bg-white">
-      <WidthConstraint className="max-w-[1100px]">
-        <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-indigo-900 mb-4">
+    <section className="py-20">
+      <WidthConstraint className="max-w-[1100px] space-y-10">
+        <Separator />
+        <div className="text-center max-w-5xl space-y-5 mx-auto px-4 pb-10">
+          <h2 className="text-3xl md:text-4xl text-center font-medium text-indigo-900">
             The Bomba app help our users send & receive money, swap currencies across
             borders and pay bills, safely, conveniently, cheaply and on time.
           </h2>
-          <p className="text-gray-600 text-sm md:text-base">
+          <p className="text-gray-600 max-w-xl mx-auto">
             We are customer-centric and focused on offering value to you that enable you
             achieve your financial needs.
           </p>
         </div>
 
-        {/* Custom grid layout to match the image */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-0 gap-x-10 px-4">
           {FEATURE_CARDS.map((card, index) => (
             <FeatureCard key={index} {...card} index={index} />

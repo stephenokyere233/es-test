@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface FeatureCardProps {
   category: string;
   title: string;
@@ -15,3 +17,17 @@ export type FooterLink = {
   href: string;
   hasArrow?: boolean;
 };
+
+export interface CategoryButtonProps {
+  children: ReactNode;
+  className?: string;
+}
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  category: string;
+  date: string;
+  image: string;
+  slug: string;
+}

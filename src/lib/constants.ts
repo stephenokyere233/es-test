@@ -1,4 +1,4 @@
-import { FeatureCardProps } from "./interfaces";
+import { BlogPost, FeatureCardProps } from "./interfaces";
 
 export const SLIDES = [
   {
@@ -190,17 +190,68 @@ export const APP_STORE_LINKS = [
     href: "https://play.google.com",
     text: "Google Play",
     tagLine: "Get it on",
-    icon: "▶",
+    icon: "/images/google.svg",
   },
   {
     href: "https://apps.apple.com",
     text: "App Store",
     tagLine: "Download on the",
-    icon: "▶",
+    icon: "/images/apple.svg",
   },
 ];
 
 export const FOOTER_SECTIONS = [
   { title: "Company", links: FOOTER_LINKS.company },
   { title: "Support", links: FOOTER_LINKS.support },
+];
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: "1",
+    title: "Combining AI, fintech to solve African problems – Ericsson",
+    category: "Core exciting Africa",
+    date: "December 05, 2021",
+    image: "/images/press/3.png",
+    slug: "combining-ai-fintech-to-solve-african-problems",
+  },
+  {
+    id: "2",
+    title: "Ghana to Host the 14th Africa Fintech Summit on October 8th",
+    category: "Tech Latest",
+    date: "May 24, 2022",
+    image: "/images/press/2.png",
+    slug: "ghana-to-host-14th-africa-fintech-summit",
+  },
+  {
+    id: "3",
+    title: "Midterm Report: Techstars Toronto's Second 2021 Class",
+    category: "Techstars",
+    date: "Dec 05, 2021",
+    image: "/images/press/4.png",
+    slug: "midterm-report-techstars-toronto-second-2021-class",
+  },
+  {
+    id: "4",
+    title: "Wise granted approval to join Zengin, Japan's domestic payment system",
+    category: "Fintech",
+    date: "December 05, 2021",
+    image: "/images/press/1.png",
+    slug: "wise-granted-approval-to-join-zengin",
+  },
+  {
+    id: "5",
+    title: "African startups to participate at Techstars Toronto October 2021 cohort",
+    category: "Fintech Africa",
+    date: "October 23, 2021",
+    image: "/images/press/5.png",
+    slug: "african-startups-to-participate-at-techstars-toronto",
+  },
+  {
+    id: "6",
+    title: "More African startups get into Techstars Toronto",
+    category: "Tech Canada",
+    date: "October 19, 2021",
+    image: "/images/press/5.png",
+    slug: "more-african-startups-get-into-techstars-toronto",
+  },
 ];
