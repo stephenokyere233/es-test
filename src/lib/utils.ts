@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // Helper function to convert hex to rgba
-export const hexToRgba = (hex: string, alpha: number = 0.3) => {
+export const hexToRgba = (hex: string, alpha: number = 0.2) => {
   // Remove the # if present
   hex = hex.replace("#", "");
 

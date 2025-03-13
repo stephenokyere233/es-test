@@ -30,7 +30,7 @@ const FeatureCard = ({
           backgroundColor: bgColorRgba,
         }}
         className={cn(
-          "border-0 overflow-clip relative hover:bg-opacity-40 transition-all duration-300 ease-in-out",
+          "border-0 overflow-clip relative hover:bg-opacity-40 transition-all duration-300 ease-in-out h-[600px]",
           isTaller ? "md:h-[650px]" : "md:h-[600px]"
         )}
       >
@@ -92,7 +92,7 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-0 gap-x-10 px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2  gap-y-10 lg:gap-y-0 gap-x-10 px-4">
           {FEATURE_CARDS.map((card, index) => (
             <FeatureCard key={index} {...card} index={index} />
           ))}

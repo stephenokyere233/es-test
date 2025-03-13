@@ -110,7 +110,7 @@ const Footer = () => {
   return (
     <footer className="bg-white py-20 text-navy-blue px-4 bg-[url('/images/footer.svg')] bg-cover bg-center">
       <WidthConstraint className="space-y-10">
-        <h2 className="text-3xl font-medium text-indigo-900 lg:text-5xl leading-[1.25em]">
+        <h2 className="text-4xl font-medium text-indigo-900 lg:text-5xl leading-[1.25em]">
           Sign up for free <br /> Join thousands of users
         </h2>
         <Separator color="#6E80A3" />

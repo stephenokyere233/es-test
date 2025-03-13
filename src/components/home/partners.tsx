@@ -8,8 +8,8 @@ const Partners = () => {
       <WidthConstraint>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Left side - Heading and text */}
-          <div className="mb-10 md:mb-0">
-            <h2 className="text-3xl font-medium text-indigo-900 mb-4 lg:text-5xl">
+          <div className="space-y-4">
+            <h2 className="text-4xl lg:text-5xl font-medium text-indigo-900">
               Trusted partners worldwide
             </h2>
             <p className="text-gray-600 max-w-[400px]">
