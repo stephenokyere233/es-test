@@ -1,15 +1,5 @@
 # ES TEST - Technical Assessment
 
-![Bomba Logo](public/images/logo.svg)
-
-## 🌟 Features
-
-- **Multi-Currency Accounts**: Create and manage accounts in various currencies
-- **Peer-to-Peer Marketplace (Swap)**: Exchange currencies at preferred rates
-- **Express Transfers**: Send money instantly to 20+ African countries
-- **Referral Program**: Earn bonuses by referring friends and family
-- **Bomba Connect**: Access deals from top brands (Coming Soon)
-
 ## 🚀 Technologies
 
 This project is built with:
@@ -106,10 +96,6 @@ The application is fully responsive with:
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 📬 Contact
-
-For any inquiries, please reach out to hello@bomba.co.
 
 ---
 
