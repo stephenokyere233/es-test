@@ -33,7 +33,7 @@ src/
 ### Prerequisites
 
 - Node.js 18.x or later
-- npm or yarn
+- pnpm or npm or yarn
 
 ### Installation
 
