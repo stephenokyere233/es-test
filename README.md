@@ -1,8 +1,6 @@
-# Bomba - Multi-Currency Financial Platform
+# ES TEST - Technical Assessment
 
 ![Bomba Logo](public/images/logo.svg)
-
-Bomba is a modern financial platform designed to simplify cross-border transactions for Africans. The platform enables users to create, send, hold, and receive money in multiple currencies, with a focus on African and foreign currencies.
 
 ## 🌟 Features
 
@@ -53,23 +51,20 @@ src/
 
    ```bash
    git clone https://github.com/yourusername/bomba.git
-   cd bomba
+   cd es-test
    ```
 
 2. Install dependencies:
 
    ```bash
-   npm install
-   # or
-   yarn install
+   pnpm install
    ```
 
 3. Start the development server:
 
    ```bash
-   npm run dev
-   # or
-   yarn dev
+   pnpm dev
+
    ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
@@ -108,13 +103,6 @@ The application is fully responsive with:
 - **FeatureCards**: Dynamic cards with customizable properties
 - **MobileHero/DesktopHero**: Responsive hero sections
 
-## 🔍 Future Enhancements
-
-- User authentication and account management
-- Real-time currency rate updates
-- Transaction history and analytics
-- Mobile app integration
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -125,4 +113,4 @@ For any inquiries, please reach out to hello@bomba.co.
 
 ---
 
-Built with ❤️ for Africans around the world.
+Built by Stephen Okyere.
